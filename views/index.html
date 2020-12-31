@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>Practica Neo4j</title>
+    <meta name='David Valladarez' content='width=device-width, initial-scale=1'>
+   <!-- CSS only -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div style="width:1500px;">
+
+        <div style="width:700px; float:left;">
+            <table align="center" border=3>
+                <tr>
+                    <td >
+                        <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Peliculas</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <% movies.forEach(function(movie){ %>
+                          <tr>
+                                <td> <%= movie.title %> </td>
+                          </tr>
+                          <% }) %>
+                        </tbody>
+                    </table>
+                    </td>
+                    <td > 
+                         <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Personas</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <% actors.forEach(function(actor){ %>
+                          <tr>
+                                <td> <%= actor.name %> </td>
+                          </tr>
+                          <% }) %>
+                        </tbody>
+                    </table>
+                    </td>
+        
+                </tr>
+            </table> 
+        
+        </div>
+        <div style="width:700px; float:right;" >
+            <form class="needs-validation" method="post" action="/movie/add">
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Ingrese el Titulo de la Pelicula:</label>
+                        <input name = "movie_title" type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Pelicula 1" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip02">Ingrese el Año de la Pelicula:</label>
+                        <input name = "movie_released" type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="2020" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Ingrese el Lema de la Pelicula:</label>
+                        <input name = "movie_tagline" type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Esta pelicula es buenisima" required>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+
+
+        <div style="width:700px; float:right;" >
+            <form class="needs-validation" method="post" action="/person/add">
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Nombre de la Persona:</label>
+                        <input name = "person_name" type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Pepe" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip02">Año de Nacimiento:</label>
+                        <input name = "person_born" type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="1995" required>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+
+        <div style="width:700px; float:right;" >
+            <form class="needs-validation" method="post" action="/movie/person/add">
+                <div class="form-row">
+                    <div class="col-md-4 mb-3"><h5>Conexion Actor y Pelicula</h5></div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Ingrese la Pelicla:</label>
+                        <input name = "movie_person_title" type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Pelicula 1" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip02">Ingrese Nombre del Actor:</label>
+                        <input name = "movie_person_name" type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Pepe" required>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+
+        <div style="width:700px; float:right;" >
+            <form class="needs-validation" method="post" action="/movie/delete">
+                <div class="form-row">
+                    <div class="col-md-4 mb-3"><h5>Eliminar Pelicula</h5></div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Ingrese la Pelicla:</label>
+                        <input name = "delete_movie" type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Pelicula 1" required>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Eliminar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>   
+</body>
+</html>
